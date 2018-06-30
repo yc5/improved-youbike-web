@@ -4,7 +4,7 @@ Adjust some elements at youbike.com.tw to improve UI and UX.
 
 ## Normal Login Page
 Log in multiple accounts more efficiently: 
-```jsx=
+```js
 javascript:
 if (window.location.href.includes("ntpc.youbike.com.tw/login")) {
     
