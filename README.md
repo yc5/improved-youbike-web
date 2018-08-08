@@ -12,7 +12,7 @@ if (window.location.href.includes("ntpc.youbike.com.tw/login")) {
     var ids = ["09XXXXXXXX", "09XXXXXXXX", "09XXXXXXXX"];
 
     //Put your password
-    var pw = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; 
+    var pw = ["XXXXXXXXX", "XXXXXXXXXXX", "XXXXXXXXXXX"]; 
     
     var br = document.createElement("br");
     var idSelect = document.createElement("SELECT");
@@ -36,7 +36,7 @@ if (window.location.href.includes("ntpc.youbike.com.tw/login")) {
         var choice = idSelect.options[idSelect.selectedIndex].text;
         if (this.value.length == 4) {
             document.getElementById("account").value = choice;
-            document.getElementById("password").value = pw;
+            document.getElementById("password").value = pw[idSelect.selectedIndex - 1];
             login.dataSend();
         }
     });
