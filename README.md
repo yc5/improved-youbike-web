@@ -1,6 +1,37 @@
 # improved-youbike-web
 Adjust some elements at youbike.com.tw to improve UI and UX.
 
+## Export Station List
+```js
+fetch('https://apis.youbike.com.tw/api/front/station/all?lang=tw&type=2').then(res=>res.json()).then(json=>{
+    result = 'name,lat,lng\n';
+    json.retVal.forEach(e => {
+        result += e.name_tw
+        result += ','
+        result += e.lat
+        result += ','
+        result += e.lng
+        result += '\n'
+    });
+    console.log(result);
+    download('youbike.csv', result)
+})
+
+function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
+}
+```
 
 ## Normal Login Page
 Log in multiple accounts more efficiently: 
